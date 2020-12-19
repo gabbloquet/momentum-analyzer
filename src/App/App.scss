@@ -1,0 +1,16 @@
+@import "src/style/core/colors";
+
+header {
+  display: flex;
+  align-items: center;
+  background-color: $DARK_BLUE;
+
+  img {
+    height: 4em;
+    margin: 1em;
+  }
+
+  h1 {
+    color: white;
+  }
+}
