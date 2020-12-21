@@ -16,6 +16,13 @@ const AssetsSelector = () => {
                     </select>
                 </label>
             </NumberedCard>
+
+            <NumberedCard number={2}>
+                <label>
+                    Je selectionne mes tickers
+                    <input />
+                </label>
+            </NumberedCard>
         </form>
     );
 }

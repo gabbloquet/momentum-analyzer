@@ -9,7 +9,7 @@ function Homepage() {
         <div className="App">
             <Topbar />
             <section className='body'>
-                <h2>Les éléments de ma stratégie</h2>
+                <h2>Ma stratégie</h2>
                 <AssetsSelector />
 
                 <h2>Analyse des assets</h2>

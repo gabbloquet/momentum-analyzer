@@ -9,7 +9,7 @@ interface NumberedCardProps {
 const NumberedCard = ({number, children}: NumberedCardProps) => {
     return (
         <div className='numbered-card'>
-            <section>{number}</section>
+            <section className='number'>{number}</section>
             <section>{children}</section>
         </div>
     );
