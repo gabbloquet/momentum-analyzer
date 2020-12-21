@@ -1,0 +1,1 @@
+export enum STRATEGY { PAPA_BEAR, DMA, MAMA_BEAR }
