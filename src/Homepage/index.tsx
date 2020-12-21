@@ -8,7 +8,7 @@ function Homepage() {
     return (
         <div className="App">
             <Topbar />
-            <section>
+            <section className='body'>
                 <h2>Les éléments de ma stratégie</h2>
                 <AssetsSelector />
 

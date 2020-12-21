@@ -1,0 +1,8 @@
+@import './colors';
+
+.blue-card {
+  background-color: $BLUE;
+  color: white;
+  border-radius: 10px;
+  padding: 1em;
+}

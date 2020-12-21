@@ -1,0 +1,11 @@
+@import './src/style/core/elements';
+
+.numbered-card {
+  @extend .blue-card;
+  display: flex;
+  align-items: center;
+
+  & > * {
+    padding: 1em;
+  }
+}
