@@ -1,13 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import Homepage from './Homepage';
+import { configureStore } from "@reduxjs/toolkit";
 import reportWebVitals from './reportWebVitals';
+import rootReducer from "./store";
 import './style/style.css';
 
+const store = configureStore({
+    reducer: rootReducer
+})
+
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <Homepage />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
