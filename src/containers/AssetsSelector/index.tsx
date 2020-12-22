@@ -1,11 +1,16 @@
 import React from 'react';
 import NumberedCard from '../../components/NumberedCard';
-import {STRATEGY} from "./AssetsSelector.service";
+import { STRATEGY } from "./AssetsSelector.service";
 import './AssetsSelector.style.scss'
+
+const addTicker = (event:  React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    console.log(event.currentTarget.ticker.value);
+}
 
 const AssetsSelector = () => {
     return (
-        <form className="assets-selector">
+        <div className="assets-selector">
             <NumberedCard number={1}>
                 <label>
                     Je selectionne ma stratégie
@@ -18,12 +23,15 @@ const AssetsSelector = () => {
             </NumberedCard>
 
             <NumberedCard number={2}>
-                <label>
-                    Je selectionne mes tickers
-                    <input />
-                </label>
+                <form onSubmit={addTicker}>
+                    <label htmlFor='ticker'>
+                        J'ajoute mes tickers
+                        <input type="text" name='ticker' placeholder='Exemple: SPY'/>
+                    </label>
+                    <button type='submit'>Ajouter</button>
+                </form>
             </NumberedCard>
-        </form>
+        </div>
     );
 }
 

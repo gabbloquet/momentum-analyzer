@@ -14,6 +14,8 @@ function Homepage() {
 
                 <h2>Analyse des assets</h2>
                 <AssetsAnalyzer />
+                <p>Attention, il ne s'agit pas de conseils d'achats. Cet outil te permet d'avoir une lecture rapide des momentums.</p>
+
             </section>
         </div>
     );
