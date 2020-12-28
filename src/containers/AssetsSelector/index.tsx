@@ -1,15 +1,20 @@
 import React from 'react';
+import {useDispatch, useSelector} from "react-redux";
 import NumberedCard from '../../components/NumberedCard';
-import {addTicker, STRATEGY} from "../../store/slices/strategySlice";
-import {useDispatch} from "react-redux";
+import {addTicker} from "../../store/slices/strategySlice";
+import {STRATEGY, UserStrategyState} from "../../store/slices/strategySlice.service";
+import Tickers from "../Tickers";
 import './AssetsSelector.style.scss'
+import {clearForm} from "../../utils/functions";
 
 const AssetsSelector = () => {
     const dispatch = useDispatch();
+    const userStrategy = useSelector((state: UserStrategyState) => state.userStrategy)
 
     const handleAddTicker = (event:  React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         dispatch(addTicker(event.currentTarget.ticker.value));
+        clearForm();
     }
 
     return (
@@ -17,7 +22,7 @@ const AssetsSelector = () => {
             <NumberedCard number={1}>
                 <label>
                     Je selectionne ma stratégie
-                    <select name='stategy'>
+                    <select name='stategy' value={userStrategy.strategy}>
                         <option value={STRATEGY.DMA}>DMA</option>
                         <option value={STRATEGY.PAPA_BEAR}>Papa Bear</option>
                         <option value={STRATEGY.MAMA_BEAR}>Mama Bear</option>
@@ -35,6 +40,8 @@ const AssetsSelector = () => {
                     <button type='submit'>Ajouter</button>
                 </form>
             </NumberedCard>
+
+            <Tickers values={userStrategy.tickers}/>
         </div>
     );
 }

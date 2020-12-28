@@ -1,0 +1,19 @@
+.assets-selector {
+  display: flex;
+
+  & > * {
+    margin-right: 1em;
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+  select {
+    margin-top: 1em;
+  }
+
+  input {
+    margin: 1em 0;
+  }
+}

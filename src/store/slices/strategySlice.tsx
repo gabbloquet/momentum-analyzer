@@ -1,16 +1,5 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-
-export enum STRATEGY { PAPA_BEAR, DMA, MAMA_BEAR, RP }
-
-interface UserStrategy {
-    strategy: STRATEGY,
-    tickers: String[]
-}
-
-const initialState = {
-    strategy: STRATEGY.DMA,
-    tickers: []
-}
+import {initialState, UserStrategy} from "./strategySlice.service";
 
 const userStrategySlice = createSlice({
     name: 'UserStrategy',
