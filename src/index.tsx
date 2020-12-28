@@ -8,7 +8,8 @@ import rootReducer from "./store";
 import './style/style.css';
 
 const store = configureStore({
-    reducer: rootReducer
+    reducer: rootReducer,
+    devTools: true
 })
 
 ReactDOM.render(

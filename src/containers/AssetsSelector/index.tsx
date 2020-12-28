@@ -1,14 +1,17 @@
 import React from 'react';
 import NumberedCard from '../../components/NumberedCard';
-import { STRATEGY } from "./AssetsSelector.service";
+import {addTicker, STRATEGY} from "../../store/slices/strategySlice";
+import {useDispatch} from "react-redux";
 import './AssetsSelector.style.scss'
 
-const addTicker = (event:  React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    console.log(event.currentTarget.ticker.value);
-}
-
 const AssetsSelector = () => {
+    const dispatch = useDispatch();
+
+    const handleAddTicker = (event:  React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        dispatch(addTicker(event.currentTarget.ticker.value));
+    }
+
     return (
         <div className="assets-selector">
             <NumberedCard number={1}>
@@ -18,12 +21,13 @@ const AssetsSelector = () => {
                         <option value={STRATEGY.DMA}>DMA</option>
                         <option value={STRATEGY.PAPA_BEAR}>Papa Bear</option>
                         <option value={STRATEGY.MAMA_BEAR}>Mama Bear</option>
+                        <option value={STRATEGY.RP}>RP</option>
                     </select>
                 </label>
             </NumberedCard>
 
             <NumberedCard number={2}>
-                <form onSubmit={addTicker}>
+                <form onSubmit={handleAddTicker}>
                     <label htmlFor='ticker'>
                         J'ajoute mes tickers
                         <input type="text" name='ticker' placeholder='Exemple: SPY'/>
