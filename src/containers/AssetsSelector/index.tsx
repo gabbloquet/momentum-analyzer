@@ -2,7 +2,7 @@ import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import NumberedCard from '../../components/NumberedCard';
 import {addTicker} from "../../store/slices/strategySlice";
-import {STRATEGY, UserStrategyState} from "../../store/slices/strategySlice.service";
+import {STRATEGY_TYPE, UserStrategyState} from "../../store/slices/strategySlice.service";
 import Tickers from "../Tickers";
 import './AssetsSelector.style.scss'
 import {clearForm} from "../../utils/functions";
@@ -23,10 +23,10 @@ const AssetsSelector = () => {
                 <label>
                     Je selectionne ma stratégie
                     <select name='stategy' value={userStrategy.strategy}>
-                        <option value={STRATEGY.DMA}>DMA</option>
-                        <option value={STRATEGY.PAPA_BEAR}>Papa Bear</option>
-                        <option value={STRATEGY.MAMA_BEAR}>Mama Bear</option>
-                        <option value={STRATEGY.RP}>RP</option>
+                        <option value={STRATEGY_TYPE.DMA}>DMA</option>
+                        <option value={STRATEGY_TYPE.PAPA_BEAR}>Papa Bear</option>
+                        <option value={STRATEGY_TYPE.MAMA_BEAR}>Mama Bear</option>
+                        <option value={STRATEGY_TYPE.RP}>RP</option>
                     </select>
                 </label>
             </NumberedCard>
