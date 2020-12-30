@@ -5,19 +5,22 @@ const userStrategySlice = createSlice({
     name: 'UserStrategy',
     initialState: initialState as UserStrategy,
     reducers: {
-        addTicker(state, action: PayloadAction<String>) {
-            return {...state, tickers: [...state.tickers, action.payload]}
+        changeSelectedStrategy(state, action: PayloadAction<String>) {
+            return {...state, strategy: action.payload}
         },
-        deleteTicker(state, action: PayloadAction<String>) {
-            let tickersTmp = [...state.tickers];
-            const tickers = tickersTmp.filter(tic => tic !== action.payload);
-            return {...state, tickers }
-        }
+        addSelection(state, action: PayloadAction<Object>) {
+            return {...state, tickers: {...action.payload}}
+        },
+        // deleteTicker(state, action: PayloadAction<String>) {
+        //     let tickersTmp = {...state.tickers};
+        //     const tickers = tickersTmp.filter(tic => tic !== action.payload);
+        //     return {...state, tickers }
+        // }
     }
 })
 
 export const {
-    addTicker,
-    deleteTicker
+    addSelection,
+    changeSelectedStrategy
 } = userStrategySlice.actions;
 export default userStrategySlice.reducer;
