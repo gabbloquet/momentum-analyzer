@@ -1,0 +1,11 @@
+@import "src/style/core/colors";
+
+.footer {
+  background: $DARK_BLUE;
+  color: white;
+  position :absolute;
+  bottom: 0;
+  width: 100%;
+  padding-left: 1em;
+  height: 3em;
+}

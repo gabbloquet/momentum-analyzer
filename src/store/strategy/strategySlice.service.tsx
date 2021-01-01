@@ -73,12 +73,14 @@ export const Strategies = new Map([
 
 export interface UserStrategy {
     strategy: String,
-    tickers: Object
+    tickers: Object,
+    analyse: Object
 }
 
 export const initialState = {
     strategy: STRATEGY_TYPE.DMA,
-    tickers: {}
+    tickers: {},
+    analyse: {}
 }
 
 export interface UserStrategyState {

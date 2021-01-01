@@ -13,6 +13,8 @@ const userStrategySlice = createSlice({
         },
         loadAnalyse(state) {
             let tickersPerformance;
+            if(!state.strategy || !state.tickers)
+                return {...state, analyse: {}}
             // state.tickers.forEach( ticker => {
             //     getMarketData(ticker);
             // })
