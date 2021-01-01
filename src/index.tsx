@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import rootReducer from "./store";
 import App from "./App";
 import './style/style.css';
+require('dotenv').config()
 
 const store = configureStore({
     reducer: rootReducer,
