@@ -1,0 +1,13 @@
+.tickers-form {
+  .tickers {
+    display: flex;
+    flex-wrap: wrap;
+    & > * {
+      margin: 0 0.5em;
+    }
+    div:first-child {
+      margin: 0 0.5em 0 0;
+    }
+  }
+}
+

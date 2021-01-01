@@ -1,8 +1,10 @@
 import {combineReducers} from '@reduxjs/toolkit'
-import userStrategyReducer from "./slices/strategySlice";
+import translationsReducer from "./translations/translationsSlice";
+import userStrategyReducer from "./strategy/strategySlice";
 
 const rootReducer = combineReducers({
-    userStrategy: userStrategyReducer
+    userStrategy: userStrategyReducer,
+    translations: translationsReducer
 })
 
 export default rootReducer;
