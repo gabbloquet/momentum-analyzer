@@ -1,4 +1,23 @@
+@import "./colors";
+
 label {
   display: flex;
   flex-direction: column;
+}
+
+button, select, input {
+  height: 3em;
+  padding: 0 0.5em;
+  background-color: white;
+  border: solid 1px $GREY;
+  border-radius: 2px;
+  box-sizing: border-box;
+
+  &:disabled {
+    background-color: $GREY;
+  }
+
+  &:focus {
+    border-color: $BLUE;
+  }
 }
