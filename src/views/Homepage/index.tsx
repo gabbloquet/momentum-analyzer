@@ -1,7 +1,7 @@
 import React from 'react';
-import AssetsSelector from "../containers/AssetsSelector";
-import AssetsAnalyzer from "../containers/AssetsAnalyzer";
-import Topbar from '../containers/Topbar';
+import AssetsSelector from "../../containers/AssetsSelector";
+import AssetsAnalyzer from "../../containers/AssetsAnalyzer";
+import Topbar from '../../containers/Topbar';
 import './Homepage.scss';
 
 function Homepage() {
