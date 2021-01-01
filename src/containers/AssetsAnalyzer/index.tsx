@@ -18,7 +18,7 @@ const AssetsAnalyzer = () => {
 
     return (
         <div className="assets-analyzer">
-            <button onClick={() => handleClick()}>Charger la data</button>
+            <button onClick={() => handleClick()}>Lancer l'analyse</button>
         </div>
     );
 }

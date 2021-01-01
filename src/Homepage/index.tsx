@@ -9,10 +9,10 @@ function Homepage() {
         <div className="App">
             <Topbar />
             <section className='body'>
-                <h2>Ma stratégie</h2>
+                <h2>Stratégie & Tickers</h2>
                 <AssetsSelector />
 
-                <h2>Analyse des assets</h2>
+                <h2>Analyse</h2>
                 <AssetsAnalyzer />
                 <p>Attention, il ne s'agit pas de conseils d'achats. Cet outil te permet d'avoir une lecture rapide des momentums.</p>
 
