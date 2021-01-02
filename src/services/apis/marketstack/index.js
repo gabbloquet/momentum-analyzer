@@ -1,7 +1,7 @@
 import {handleJSONResponse, urlConstructor} from "../../../utils/fetch";
 import {dateTimeToDate} from "../../../utils/functions";
 
-export const getMarketData = (symbol, from, to) => {
+export const getMarketData = async (symbol, from, to) => {
 
     const urlConfig = {
         baseUrl: 'http://api.marketstack.com',
@@ -11,13 +11,14 @@ export const getMarketData = (symbol, from, to) => {
             symbols: symbol,
             date_from: dateTimeToDate(from),
             date_to: dateTimeToDate(to),
+            limit: 150
         },
     };
 
     return fetch(urlConstructor(urlConfig), { method: "GET" })
-    .then(handleJSONResponse)
-    .then(response => response)
-    .catch(err => {
-        console.error(err);
-    });
+      .then(handleJSONResponse)
+      .then(response => response)
+      .catch(err => {
+          console.error(err);
+      });
 }

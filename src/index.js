@@ -6,6 +6,9 @@ import rootReducer from "./store";
 import App from "./App";
 import './style/style.css';
 
+// import {enableMapSet} from "immer"
+// enableMapSet();
+
 const store = configureStore({
     reducer: rootReducer,
     devTools: true
