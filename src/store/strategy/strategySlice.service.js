@@ -1,7 +1,3 @@
-import {getDateWithMonthAgo, sleep} from "../../utils/functions";
-import {getMarketData} from "../../services/apis/marketstack";
-import {getPerformance} from "../../services/mappers/marketstack";
-
 export const STRATEGY_TYPE = {
   DMA: "DMA",
   PAPA_BEAR: "Papa bear",
@@ -79,52 +75,4 @@ export const initialState = {
   strategy: STRATEGY_TYPE.DMA,
   tickers: {},
   analyse: {}
-}
-
-export const getAnalyseForDMA = async (userStrategy) => {
-  let analyse = [];
-
-  const sixMonthAgo = getDateWithMonthAgo(new Date(), 6);
-  const threeMonthAgo = getDateWithMonthAgo(new Date(),3);
-  const aMonthAgo = getDateWithMonthAgo(new Date(),1);
-
-  let performances = new Promise((resolve, reject) => {
-    Strategies.get(userStrategy.strategy).forEach(async asset => {
-
-      const ticker = userStrategy.tickers[asset];
-      await sleep(2000);
-
-      let data = await getMarketData(ticker, sixMonthAgo, new Date());
-      const sixMonthAgoPerf = getPerformance(data);
-      await sleep(2000);
-
-      data = await getMarketData(ticker, threeMonthAgo, new Date())
-      const threeMonthAgoPerf = getPerformance(data);
-      await sleep(2000);
-
-      data = await getMarketData(ticker, aMonthAgo, new Date());
-      const aMonthAgoPerf = getPerformance(data);
-      await sleep(2000);
-
-      const avg = (sixMonthAgoPerf + threeMonthAgoPerf + aMonthAgoPerf) / 3;
-
-      analyse.push({
-        asset,
-        ticker,
-        avg,
-        1: aMonthAgoPerf,
-        3: threeMonthAgoPerf,
-        6: sixMonthAgoPerf
-      })
-    })
-    console.log('analyze', analyse)
-    console.log('done')
-    resolve();
-  });
-
-  performances.then(() => {
-    console.log('final : ', analyse)
-    return analyse;
-  })
-
 }

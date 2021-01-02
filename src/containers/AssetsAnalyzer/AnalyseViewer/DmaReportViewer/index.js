@@ -1,8 +1,9 @@
 import React from 'react';
 import {useSelector} from "react-redux";
+import {useIntl} from "react-intl";
 
 const DmaReportViewer = () => {
-
+  const intl = useIntl();
   const analyse = useSelector(state => state.userStrategy.analyse)
 
   return (
@@ -20,7 +21,7 @@ const DmaReportViewer = () => {
       <tbody>
       { analyse && analyse.map(assetElements => {
         return <tr>
-          <td>{assetElements.asset}</td>
+          <td>{intl.formatMessage({id: "ASSETS." + assetElements.asset})}</td>
           <td>{assetElements.ticker}</td>
           <td>{assetElements[1]}</td>
           <td>{assetElements[3]}</td>

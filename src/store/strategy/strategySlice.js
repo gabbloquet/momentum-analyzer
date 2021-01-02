@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {getAnalyseForDMA, initialState, STRATEGY_TYPE} from "./strategySlice.service";
+import {initialState} from "./strategySlice.service";
 import {STATUS} from "../../utils/status";
 
 const userStrategySlice = createSlice({
@@ -12,17 +12,22 @@ const userStrategySlice = createSlice({
     addSelection(state, action) {
       return {...state, tickers: {...action.payload}}
     },
-    loadAnalyse(state) {
-      if(state.strategy === STRATEGY_TYPE.DMA) {
-        const analyse = getAnalyseForDMA(state);
-        return {...state, analyse};
-      } else {
-        return {...state, analyse: STATUS.ERROR};
-      }
+    addAssetAnalyse(state, action) {
+      return {...state, analyse: [ ...state.analyse, {...action.payload}]}
+    },
+    // async loadAnalyse(state) {
+    //   if(state.strategy === STRATEGY_TYPE.DMA) {
+    //     console.log('COUCOU')
+    //     const analyse = await getAnalyseForDMA(state);
+    //     console.log('COUCOU 2 : ', analyse)
+    //     return {...state, analyse};
+    //   } else {
+    //     return {...state, analyse: STATUS.ERROR};
+    //   }
       // state.tickers.forEach( ticker => {
       //     getMarketData(ticker);
       // })
-    },
+    // },
     setAnalyseLoading(state) {
       return {...state, analyse: STATUS.LOADING}
     }
@@ -37,7 +42,7 @@ const userStrategySlice = createSlice({
 export const {
   addSelection,
   changeSelectedStrategy,
-  loadAnalyse,
+  addAssetAnalyse,
   setAnalyseLoading
 } = userStrategySlice.actions;
 export default userStrategySlice.reducer;
