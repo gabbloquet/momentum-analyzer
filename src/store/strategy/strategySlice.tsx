@@ -1,5 +1,5 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {initialState, UserStrategy} from "./strategySlice.service";
+import {initialState, Strategies, UserStrategy} from "./strategySlice.service";
 
 const userStrategySlice = createSlice({
     name: 'UserStrategy',
@@ -13,8 +13,10 @@ const userStrategySlice = createSlice({
         },
         loadAnalyse(state) {
             let tickersPerformance;
-            if(!state.strategy || !state.tickers)
-                return {...state, analyse: {}}
+            Strategies.get(state.strategy + '')?.forEach((assetToCheck: string) => {
+                console.log('ASSET : ', assetToCheck)
+                console.log('ASSET : ', state.tickers[assetToCheck])
+            })
             // state.tickers.forEach( ticker => {
             //     getMarketData(ticker);
             // })

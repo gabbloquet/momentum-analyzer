@@ -73,7 +73,7 @@ export const Strategies = new Map([
 
 export interface UserStrategy {
     strategy: String,
-    tickers: Object,
+    tickers: any,
     analyse: Object
 }
 
