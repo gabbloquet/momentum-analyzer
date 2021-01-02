@@ -16,3 +16,7 @@ export const getDateWithMonthAgo = (today, monthAgo) => {
 export const dateTimeToDate = (dateTime) => {
     return dateTime.toISOString().slice(0,10);
 }
+
+export const sleep = (milliseconds) => {
+  return new Promise(resolve => setTimeout(resolve, milliseconds));
+}

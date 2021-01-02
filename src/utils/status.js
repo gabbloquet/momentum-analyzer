@@ -1,0 +1,4 @@
+export const STATUS = {
+  ERROR: 'STATUS/ERROR',
+  LOADING: 'STATUS/LOADING'
+}
