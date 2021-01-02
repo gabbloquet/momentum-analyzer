@@ -3,7 +3,6 @@ import dotenv from 'dotenv'
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { configureStore } from "@reduxjs/toolkit";
-import reportWebVitals from './reportWebVitals';
 import rootReducer from "./store";
 import App from "./App";
 import './style/style.css';
@@ -21,5 +20,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
-
-reportWebVitals();

@@ -1,4 +1,4 @@
-import React, {ChangeEvent} from 'react';
+import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import NumberedCard from '../../components/NumberedCard';
 import {changeSelectedStrategy} from "../../store/strategy/strategySlice";
