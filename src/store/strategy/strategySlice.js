@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {initialState, Strategies} from "./strategySlice.service";
+import {getAnalyseForDMA, initialState, STRATEGY_TYPE} from "./strategySlice.service";
 
 const userStrategySlice = createSlice({
     name: 'UserStrategy',
@@ -12,11 +12,10 @@ const userStrategySlice = createSlice({
             return {...state, tickers: {...action.payload}}
         },
         loadAnalyse(state) {
-            let tickersPerformance;
-            Strategies.get(state.strategy + '')?.forEach(assetToCheck => {
-                console.log('ASSET : ', assetToCheck)
-                console.log('ASSET : ', state.tickers[assetToCheck])
-            })
+            let analyse;
+            if(state.strategy === STRATEGY_TYPE.DMA)
+                analyse = getAnalyseForDMA(state);
+            return {...state, analyse};
             // state.tickers.forEach( ticker => {
             //     getMarketData(ticker);
             // })

@@ -1,3 +1,6 @@
+import {getDateWithMonthAgo} from "../../utils/functions";
+import {getMarketData} from "../../services/apis/marketstack";
+
 export const STRATEGY_TYPE = {
     DMA: "DMA",
     PAPA_BEAR: "Papa bear",
@@ -75,4 +78,37 @@ export const initialState = {
     strategy: STRATEGY_TYPE.DMA,
     tickers: {},
     analyse: {}
+}
+
+const getPerfomance = (marketData) => {
+    return (marketData.data[1].close/marketData.data[marketData.data.length - 1].open - 1) * 100
+}
+
+export const getAnalyseForDMA = (userStrategy) => {
+    let analyse = new Map();
+
+    const sixMonthAgo = getDateWithMonthAgo(new Date(), 6);
+    const threeMonthAgo = getDateWithMonthAgo(new Date(),3);
+    const oneMonthAgo = getDateWithMonthAgo(new Date(),1);
+
+    Strategies.get(userStrategy.strategy).forEach(assetToCheck => {
+
+      const key = assetToCheck + ' - ' + userStrategy.tickers[assetToCheck];
+
+      getMarketData(userStrategy.tickers[assetToCheck], sixMonthAgo, new Date())
+        .then(data => analyse.set(key, { 6: getPerfomance(data)}));
+
+      getMarketData(userStrategy.tickers[assetToCheck], threeMonthAgo, new Date())
+        .then(data => analyse.set(key, { ...analyse.get(key), 3: getPerfomance(data)}));
+
+      getMarketData(userStrategy.tickers[assetToCheck], oneMonthAgo, new Date())
+        .then(data => analyse.set(key, { ...analyse.get(key), 1: getPerfomance(data)}));
+console.log(analyse)
+      const moy = (analyse.get(key)[1] + analyse.get(key)[3] + analyse.get(key)[6]) / 3;
+console.log(analyse)
+
+      analyse.set(key, { ...analyse.get(key), 0: moy})
+    })
+
+    return analyse;
 }

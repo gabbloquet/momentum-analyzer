@@ -13,7 +13,6 @@ const TickersForm = () => {
     const userStrategy = useSelector(state => state.userStrategy)
 
     const handleAddTicker = (event) => {
-        console.log(event)
         dispatch(addSelection(event));
     }
     return (

@@ -15,7 +15,7 @@ const AssetsAnalyzer = () => {
             ) : isAnEmptyObject(analyse) ? (
                 <button onClick={() => dispatch(loadAnalyse())}>Lancer l'analyse</button>
             ) : (
-                <p>Cliquez sur le boutton pour lancer l'analyse</p>
+                <p>Analyse : </p>
             )}
         </div>
     );

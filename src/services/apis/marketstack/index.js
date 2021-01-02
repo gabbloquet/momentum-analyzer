@@ -1,23 +1,22 @@
 import {handleJSONResponse, urlConstructor} from "../../../utils/fetch";
+import {dateTimeToDate} from "../../../utils/functions";
 
-const getMarketData = (symbol: string, from: string, to: string) => {
+export const getMarketData = (symbol, from, to) => {
 
     const urlConfig = {
         baseUrl: 'http://api.marketstack.com',
         apiEndpoint: '/v1/eod',
         queryParams: {
-            access_key: process.env.MARKETSTACK_ACCESS_KEY,
+            access_key: process.env.REACT_APP_MARKETSTACK_ACCESS_KEY,
             symbols: symbol,
-            date_from: from,
-            date_to: to,
+            date_from: dateTimeToDate(from),
+            date_to: dateTimeToDate(to),
         },
     };
 
     return fetch(urlConstructor(urlConfig), { method: "GET" })
     .then(handleJSONResponse)
-    .then(response => {
-        console.log(response);
-    })
+    .then(response => response)
     .catch(err => {
         console.error(err);
     });
