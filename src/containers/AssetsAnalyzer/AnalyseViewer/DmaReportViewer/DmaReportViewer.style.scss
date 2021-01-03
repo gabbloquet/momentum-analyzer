@@ -1,8 +1,21 @@
+@import "src/style/core/colors";
+
 .dma-report-viewer {
   table {
     width: 100%;
     tbody {
       text-align: center;
+    }
+  }
+  h3 {
+    display: flex;
+    align-items: center;
+    .styled-spinner {
+      margin: 5px 10px 0;
+    }
+    p {
+      margin-left: 1em;
+      color: $BLUE;
     }
   }
 }

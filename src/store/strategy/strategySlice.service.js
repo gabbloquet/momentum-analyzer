@@ -74,5 +74,7 @@ export const Strategies = new Map([
 export const initialState = {
   strategy: STRATEGY_TYPE.DMA,
   tickers: {},
-  analyse: {}
+  analyse: [],
+  preconisation : undefined,
+  status: undefined
 }

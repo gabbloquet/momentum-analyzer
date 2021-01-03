@@ -17,6 +17,9 @@ const userStrategySlice = createSlice({
     },
     setAnalyseLoading(state) {
       return {...state, status: STATUS.LOADING}
+    },
+    setPreconisation(state, action) {
+      return {...state, preconisation: action.payload}
     }
   }
 })
@@ -25,6 +28,7 @@ export const {
   addSelection,
   changeSelectedStrategy,
   addAssetAnalyse,
-  setAnalyseLoading
+  setAnalyseLoading,
+  setPreconisation
 } = userStrategySlice.actions;
 export default userStrategySlice.reducer;

@@ -1,12 +1,19 @@
-import React from 'react';
-import {useSelector} from "react-redux";
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from "react-redux";
 import {useIntl} from "react-intl";
-import './DmaReportViewer.style.scss'
+import {loadDmaPreconisation} from "../../../../services/domain/analyse";
 import Spinner from "../../../../components/Spinner";
+import './DmaReportViewer.style.scss'
 
 const DmaReportViewer = () => {
   const intl = useIntl();
-  const analyse = useSelector(state => state.userStrategy.analyse)
+  const dispatch = useDispatch();
+  const userStrategy = useSelector(state => state.userStrategy)
+
+  useEffect(() => {
+    if(userStrategy.analyse.length === Object.keys(userStrategy.tickers).length)
+      dispatch(loadDmaPreconisation(userStrategy.analyse));
+  }, [userStrategy.analyse, dispatch, userStrategy.tickers, userStrategy.tickers.length])
 
   return (
     <div className='dma-report-viewer'>
@@ -22,7 +29,7 @@ const DmaReportViewer = () => {
         </tr>
         </thead>
         <tbody>
-        { analyse && analyse.map(assetElements => {
+        { userStrategy.analyse && userStrategy.analyse.map(assetElements => {
           return <tr>
             <td>{intl.formatMessage({id: "ASSETS." + assetElements.asset})}</td>
             <td>{assetElements.ticker}</td>
@@ -34,7 +41,12 @@ const DmaReportViewer = () => {
         })}
         </tbody>
       </table>
-      <h3>Préconisation d'achat : {analyse.choice ? <p>{analyse.choice}</p> : <Spinner />}</h3>
+      <h3>Préconisation d'achat :
+        {userStrategy.preconisation
+          ? <p>{intl.formatMessage({id: "ASSETS." + userStrategy.preconisation.asset})} ({userStrategy.preconisation.ticker})</p>
+          : <Spinner />
+        }
+      </h3>
     </div>
   );
 };

@@ -1,8 +1,8 @@
 import {getDateWithMonthAgo, sleep} from "../../../utils/functions";
 import {getMarketData} from "../../apis/marketstack";
 import {getPerformance} from "../../mappers/marketstack";
-import {Strategies} from "../../../store/strategy/strategySlice.service";
-import {addAssetAnalyse} from "../../../store/strategy/strategySlice";
+import {ASSET_TYPE, Strategies} from "../../../store/strategy/strategySlice.service";
+import {addAssetAnalyse, setPreconisation} from "../../../store/strategy/strategySlice";
 
 const getTickerPerformance = async(ticker, date) => {
   let data = await getMarketData(ticker, date, new Date());
@@ -40,4 +40,8 @@ export const loadDMAAnalyse = (userStrategy) => dispatch => {
       6: sixMonthAgoPerf
     }))
   })
+}
+
+export const loadDmaPreconisation = (analyse) => dispatch => {
+  dispatch(setPreconisation({asset: ASSET_TYPE.EX_US_STOCKS, ticker: 'SCZ'}))
 }

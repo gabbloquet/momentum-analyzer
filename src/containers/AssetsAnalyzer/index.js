@@ -20,7 +20,7 @@ const AssetsAnalyzer = () => {
         <div className="assets-analyzer">
             {isAnEmptyObject(userStrategy.tickers) ? (
                 <p>Veuillez selectionner une stratégie et saisir les tickers.</p>
-            ) : isAnEmptyObject(userStrategy.analyse) ? (
+            ) : isAnEmptyObject(userStrategy.analyse) && !userStrategy.status ? (
                 <button onClick={() => handleLaunchAnalyse()}>Lancer l'analyse</button>
             ) : (
               <div className='max-width-center'>
