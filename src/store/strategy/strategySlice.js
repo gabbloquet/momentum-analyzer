@@ -13,10 +13,10 @@ const userStrategySlice = createSlice({
       return {...state, tickers: {...action.payload}}
     },
     addAssetAnalyse(state, action) {
-      return {...state, analyse: [ ...state.analyse, {...action.payload}]}
+      return {...state, analyse: [ ...state.analyse, {...action.payload}], status: STATUS.DONE}
     },
     setAnalyseLoading(state) {
-      return {...state, analyse: STATUS.LOADING}
+      return {...state, status: STATUS.LOADING}
     }
   }
 })

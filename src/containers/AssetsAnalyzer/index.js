@@ -23,15 +23,15 @@ const AssetsAnalyzer = () => {
             ) : isAnEmptyObject(userStrategy.analyse) ? (
                 <button onClick={() => handleLaunchAnalyse()}>Lancer l'analyse</button>
             ) : (
-              <>
-                { userStrategy.analyse === STATUS.LOADING ? (
+              <div className='max-width-center'>
+                { userStrategy.status === STATUS.LOADING ? (
                   <Spinner />
-                ) : userStrategy.analyse === STATUS.ERROR ? (
+                ) : userStrategy.status === STATUS.ERROR ? (
                   <p>Désolé nous ne prennons pas encore en compte cette stratégie ou une erreur a été rencontrée.</p>
                 ) : (
                   <AnalyseViewer />
                 )}
-              </>
+              </div>
             )}
         </div>
     );

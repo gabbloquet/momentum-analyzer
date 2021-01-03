@@ -25,6 +25,11 @@ button:focus, select:focus, input:focus {
   padding: 1em;
 }
 
+.max-width-center {
+  width: 100%;
+  text-align: center;
+}
+
 body {
   margin: 0;
   font-family: "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
