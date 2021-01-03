@@ -22,15 +22,15 @@ const DmaReportViewer = () => {
         <tr>
           <th>Asset</th>
           <th>Ticker selectionné</th>
-          <th>Performance sur 6 mois</th>
-          <th>Performance sur 3 mois</th>
           <th>Performance sur 1 mois</th>
+          <th>Performance sur 3 mois</th>
+          <th>Performance sur 6 mois</th>
           <th>Moyenne</th>
         </tr>
         </thead>
         <tbody>
         { userStrategy.analyse && userStrategy.analyse.map(assetElements => {
-          return <tr>
+          return <tr key={assetElements.asset}>
             <td>{intl.formatMessage({id: "ASSETS." + assetElements.asset})}</td>
             <td>{assetElements.ticker}</td>
             <td>{assetElements[1].toFixed(2)} %</td>
