@@ -5,7 +5,7 @@ import {isAnEmptyObject} from "../../utils/functions";
 import {STATUS} from "../../utils/status";
 import Spinner from "../../components/Spinner";
 import AnalyseViewer from "./AnalyseViewer";
-import {getAnalyseForDMA} from "../../services/domain/analyse";
+import {loadDMAAnalyse} from "../../services/domain/analyse";
 
 const AssetsAnalyzer = () => {
     const dispatch = useDispatch();
@@ -13,7 +13,7 @@ const AssetsAnalyzer = () => {
 
     const handleLaunchAnalyse = () => {
       dispatch(setAnalyseLoading());
-      dispatch(getAnalyseForDMA(userStrategy));
+      dispatch(loadDMAAnalyse(userStrategy));
     }
 
     return (

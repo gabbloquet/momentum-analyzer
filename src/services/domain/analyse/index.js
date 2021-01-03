@@ -9,8 +9,7 @@ const getTickerPerformance = async(ticker, date) => {
   return getPerformance(data);
 }
 
-export const getAnalyseForDMA = (userStrategy) => dispatch => {
-  let analyse = [];
+export const loadDMAAnalyse = (userStrategy) => dispatch => {
 
   const sixMonthAgo = getDateWithMonthAgo(new Date(), 6);
   const threeMonthAgo = getDateWithMonthAgo(new Date(),3);
@@ -21,19 +20,13 @@ export const getAnalyseForDMA = (userStrategy) => dispatch => {
     const ticker = userStrategy.tickers[asset];
     await sleep(2000);
 
-    // let data = await getMarketData(ticker, sixMonthAgo, new Date());
-    // const sixMonthAgoPerf = getPerformance(data);
-    const sixMonthAgoPerf = getTickerPerformance(ticker, sixMonthAgo)
+    const sixMonthAgoPerf = await getTickerPerformance(ticker, sixMonthAgo)
     await sleep(2000);
 
-    // data = await getMarketData(ticker, threeMonthAgo, new Date())
-    // const threeMonthAgoPerf = getPerformance(data);
-    const threeMonthAgoPerf = getTickerPerformance(ticker, threeMonthAgo)
+    const threeMonthAgoPerf = await getTickerPerformance(ticker, threeMonthAgo)
     await sleep(2000);
 
-    // data = await getMarketData(ticker, aMonthAgo, new Date());
-    // const aMonthAgoPerf = getPerformance(data);
-    const aMonthAgoPerf = getTickerPerformance(ticker, aMonthAgo)
+    const aMonthAgoPerf = await getTickerPerformance(ticker, aMonthAgo)
     await sleep(2000);
 
     const avg = (sixMonthAgoPerf + threeMonthAgoPerf + aMonthAgoPerf) / 3;
@@ -47,6 +40,4 @@ export const getAnalyseForDMA = (userStrategy) => dispatch => {
       6: sixMonthAgoPerf
     }))
   })
-
-  return analyse;
 }
