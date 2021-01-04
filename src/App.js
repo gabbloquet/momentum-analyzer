@@ -1,9 +1,16 @@
-import Homepage from "./views/Homepage";
+import Strategy from "./views/Strategy";
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 import {IntlProvider} from "react-intl";
 import {loadTranslations} from "./utils/translations";
 import Spinner from "./components/Spinner";
+import TickerAnalyse from "./views/TickerAnalyse";
+import Topbar from "./containers/Topbar";
 
 const App = () => {
 
@@ -18,7 +25,20 @@ const App = () => {
       <>
         { messages ? (
               <IntlProvider messages={messages} locale="fr" defaultLocale="fr">
-                  <Homepage />
+                <Router>
+                  <div>
+                    <Topbar />
+
+                    <Switch>
+                      <Route path="/research">
+                        <TickerAnalyse />
+                      </Route>
+                      <Route path="/">
+                        <Strategy />
+                      </Route>
+                    </Switch>
+                  </div>
+                </Router>
               </IntlProvider>
         ) : (
               <Spinner />

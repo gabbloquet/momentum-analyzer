@@ -12,6 +12,17 @@ header {
     align-items: center;
   }
 
+  ul {
+    display: flex;
+    list-style: none;
+    a {
+      margin-right: 1em;
+      color: white;
+      &:hover {
+        font-style: italic;
+      }
+    }
+  }
   img {
     height: 4em;
   }
@@ -19,8 +30,4 @@ header {
   h1 {
     padding-left: 1em;
   }
-}
-
-.body {
-  padding: 2em;
 }
