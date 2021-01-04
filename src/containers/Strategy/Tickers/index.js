@@ -1,16 +1,12 @@
 import React from 'react';
 import './Tickers.style.scss'
 
-interface TickerProps {
-    values: String[]
-}
-
-const Tickers = ({values}: TickerProps) => {
+const Tickers = ({values}) => {
     // const dispatch = useDispatch();
 
     return (
         <ul className="tickers">
-            {values.map((ticker: String) => {
+            {values.map((ticker) => {
                 return <li key={'TICKER_' + ticker}>
                     {ticker}
                     {/*<button onClick={() => dispatch(deleteTicker(ticker))}>Delete</button>*/}

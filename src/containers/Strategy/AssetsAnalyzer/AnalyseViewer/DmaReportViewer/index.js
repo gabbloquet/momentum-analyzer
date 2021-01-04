@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {useIntl} from "react-intl";
-import {loadDmaPreconisation} from "../../../../services/domain/analyse";
-import Spinner from "../../../../components/Spinner";
+import {loadDmaPreconisation} from "../../../../../services/domain/analyse";
+import Spinner from "../../../../../components/Spinner";
 import './DmaReportViewer.style.scss'
 
 const DmaReportViewer = () => {

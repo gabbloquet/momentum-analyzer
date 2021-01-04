@@ -1,11 +1,11 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {setAnalyseLoading} from '../../store/strategy/strategySlice';
-import {isAnEmptyObject} from "../../utils/functions";
-import {STATUS} from "../../utils/status";
-import Spinner from "../../components/Spinner";
+import {setAnalyseLoading} from '../../../store/strategy/strategySlice';
+import {isAnEmptyObject} from "../../../utils/functions";
+import {STATUS} from "../../../utils/status";
+import Spinner from "../../../components/Spinner";
 import AnalyseViewer from "./AnalyseViewer";
-import {loadDMAAnalyse} from "../../services/domain/analyse";
+import {loadDMAAnalyse} from "../../../services/domain/analyse";
 
 const AssetsAnalyzer = () => {
     const dispatch = useDispatch();

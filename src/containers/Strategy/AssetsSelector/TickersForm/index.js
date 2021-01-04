@@ -1,9 +1,9 @@
 import React from "react";
-import {Strategies} from "../../../store/strategy/strategySlice.service";
+import {Strategies} from "../../../../store/strategy/strategySlice.service";
 import {useIntl} from "react-intl";
 import {useDispatch, useSelector} from "react-redux";
 import {useForm} from "react-hook-form";
-import {addSelection} from "../../../store/strategy/strategySlice";
+import {addSelection} from "../../../../store/strategy/strategySlice";
 import './TickersForm.style.scss'
 
 const TickersForm = () => {

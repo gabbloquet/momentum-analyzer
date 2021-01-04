@@ -1,5 +1,5 @@
 import {useSelector} from "react-redux";
-import {STRATEGY_TYPE} from "../../../store/strategy/strategySlice.service";
+import {STRATEGY_TYPE} from "../../../../store/strategy/strategySlice.service";
 import DmaReportViewer from './DmaReportViewer'
 
 const AnalyseViewer = () => {
