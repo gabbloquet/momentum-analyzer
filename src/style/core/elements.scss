@@ -1,5 +1,9 @@
 @import './colors';
 
+.content {
+  padding: 2em;
+}
+
 .blue-card {
   background-color: $BLUE;
   color: white;

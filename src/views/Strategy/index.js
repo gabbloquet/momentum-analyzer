@@ -2,12 +2,11 @@ import React from 'react';
 import AssetsSelector from "../../containers/AssetsSelector";
 import AssetsAnalyzer from "../../containers/AssetsAnalyzer";
 import Footer from '../../containers/Footer';
-import './Strategy.scss';
 
 function Strategy() {
     return (
-        <div className="App">
-            <section className='body'>
+        <>
+            <section className='content'>
                 <h2>Stratégie & Tickers</h2>
                 <AssetsSelector />
 
@@ -15,7 +14,7 @@ function Strategy() {
                 <AssetsAnalyzer />
             </section>
             <Footer />
-        </div>
+        </>
     );
 }
 

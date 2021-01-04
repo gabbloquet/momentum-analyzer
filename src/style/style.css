@@ -18,6 +18,10 @@ button:focus, select:focus, input:focus {
   border-color: #007FF6;
 }
 
+.content {
+  padding: 2em;
+}
+
 .blue-card {
   background-color: #007FF6;
   color: white;
