@@ -10,8 +10,8 @@ const TickerAnalyse = () => {
     <section className='content'>
       <NumberedCard number={1}>
         <TickerAnalyseForm setAnalyse={setAnalyse}/>
-        <TickerAnalyseVisualisation analyse={analyse}/>
       </NumberedCard>
+      { analyse ? <TickerAnalyseVisualisation analyse={analyse}/> : <></> }
     </section>
   );
 };
