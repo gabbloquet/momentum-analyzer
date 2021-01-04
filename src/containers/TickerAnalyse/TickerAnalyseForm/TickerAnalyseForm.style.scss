@@ -1,0 +1,8 @@
+.ticker-analyse-form {
+  display: flex;
+  align-items: flex-end;
+  & > * {
+    margin-right: 1em;
+  }
+}
+

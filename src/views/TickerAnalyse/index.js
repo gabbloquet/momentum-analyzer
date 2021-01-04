@@ -1,12 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import NumberedCard from "../../components/NumberedCard";
+import TickerAnalyseForm from "../../containers/TickerAnalyse/TickerAnalyseForm";
+import TickerAnalyseVisualisation from "../../containers/TickerAnalyse/TickerAnalyseVisualisation";
 
 const TickerAnalyse = () => {
+  const [analyse, setAnalyse] = useState();
+
   return (
     <section className='content'>
       <NumberedCard number={1}>
-        <h3>J'insère les informations de mon ticker</h3>
-
+        <TickerAnalyseForm setAnalyse={setAnalyse}/>
+        <TickerAnalyseVisualisation analyse={analyse}/>
       </NumberedCard>
     </section>
   );
