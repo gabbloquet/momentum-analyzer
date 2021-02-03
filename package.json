@@ -1,4 +1,5 @@
 {
+  "homepage": "http://gabbloquet.github.io/momentum-analyzer",
   "name": "tkl-dma",
   "version": "0.1.0",
   "private": true,
@@ -27,6 +28,8 @@
     "start-js": "react-scripts start",
     "start": "npm-run-all -p start-js watch:sass",
     "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d public",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -49,6 +52,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^3.1.0",
     "npm-run-all": "^4.1.5"
   }
 }
