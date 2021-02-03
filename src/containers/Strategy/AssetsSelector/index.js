@@ -1,10 +1,10 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import NumberedCard from '../../components/NumberedCard';
-import {changeSelectedStrategy} from "../../store/strategy/strategySlice";
-import {STRATEGY_TYPE} from "../../store/strategy/strategySlice.service";
-import './AssetsSelector.style.scss'
+import NumberedCard from '../../../components/NumberedCard';
+import {changeSelectedStrategy} from "../../../store/strategy/strategySlice";
+import {STRATEGY_TYPE} from "../../../store/strategy/strategySlice.service";
 import TickersForm from './TickersForm';
+import './AssetsSelector.style.scss'
 
 const AssetsSelector = () => {
     const dispatch = useDispatch();

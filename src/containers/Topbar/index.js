@@ -7,9 +7,9 @@ function Topbar() {
     <header>
       <div className="logo-and-title">
         <Link to="/">
-          <img  alt='TKL Academy' src='https://www.tklacademy.com/assets/images/logo.png'/>
+          <img  alt='Bourse Academy' src='https://us.allianzgi.com/-/media/allianzgi/na/us/images/1920x980-momentum-driven-investing-hero.jpg?w=1152&hash=555965964A7131396E7A5885525C8D39'/>
         </Link>
-        <h1>TKL DMA</h1>
+        <h1>Momentum Analyzer</h1>
       </div>
       <nav>
         <ul>

@@ -15,7 +15,7 @@ button:disabled, select:disabled, input:disabled {
   background-color: #E9ECEF;
 }
 button:focus, select:focus, input:focus {
-  border-color: #007FF6;
+  border-color: #647A94;
 }
 
 .content {
@@ -23,7 +23,7 @@ button:focus, select:focus, input:focus {
 }
 
 .blue-card {
-  background-color: #007FF6;
+  background-color: #647A94;
   color: white;
   border-radius: 10px;
   padding: 1em;
