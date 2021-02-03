@@ -1,0 +1,24 @@
+{
+  "ASSETS": {
+    "COMMODIITES": "Commodities",
+    "REAL_ESTATE": "Real Estate",
+    "GOLD": "Gold",
+    "US_STOCKS": "US Stocks",
+    "EX_US_STOCKS": "Ex-US Stocks",
+    "LARGE_CAP_STOCKS": "Large cap stocks",
+    "LARGE_CAP_VALUES_STOCKS": "Large cap VALUES stocks",
+    "LARGE_CAP_GROWTH_STOCKS": "Large cap GROWTH stocks",
+    "SMALL_CAP_STOCKS": "Small cap stocks",
+    "SMALL_CAP_VALUES_STOCKS": "Small cap VALUES stocks",
+    "SMALL_CAP_GROWTH_STOCKS": "Small cap GROWTH stocks",
+    "DEVELOPED_MARKETS_STOCKS": "Developed markets stocks",
+    "EMERGING_MARKETS_STOCKS": "Emerging markets stocks",
+    "LONG_TERM_BONDS": "Long term bonds",
+    "LONG_TERM_BONDS_EXTENDED": "Long term bonds extended",
+    "MID_TERM_BONDS": "Mid term bonds",
+    "SHORT_TERM_BONDS": "Short term bonds",
+    "CORPORATE_BONDS": "Corporate bonds",
+    "HIGH_YIELD_BONDS": "High yield bonds",
+    "TIPS": "Tips"
+  }
+}
