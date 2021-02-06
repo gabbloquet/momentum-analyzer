@@ -24,13 +24,22 @@ const TickersForm = () => {
             <h3>J'ajoute mes tickers en fonction de ma stratégie</h3>
             <div className="tickers">
                 {Strategies.get(userStrategy.strategy + '')?.map(asset => {
-                    return <div key={asset}>
+                    return <div key={userStrategy.strategy + asset}>
                         <p>{intl.formatMessage({id: "ASSETS." + asset})}</p>
                         <input type="text" name={asset + ''} placeholder='TICKER' ref={register({ required: true })}/>
                     </div>
                 })}
             </div>
+          <div className='buttons'>
             <button type='submit'>Valider</button>
+            <details>
+              <summary>Je ne connais pas de ticker</summary>
+              US Stocks : SPY <br/>
+              Ex-US Stocks : SCZ <br/>
+              Long term bonds : TLT <br/>
+              Tips : TIP
+            </details>
+          </div>
         </form>
     )
 }
