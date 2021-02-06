@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/momentum-analyzer/static/css/main.bac46d89.chunk.css",
-    "main.js": "/momentum-analyzer/static/js/main.53e15c60.chunk.js",
-    "main.js.map": "/momentum-analyzer/static/js/main.53e15c60.chunk.js.map",
+    "main.css": "/momentum-analyzer/static/css/main.8e31ef03.chunk.css",
+    "main.js": "/momentum-analyzer/static/js/main.f2a5d39c.chunk.js",
+    "main.js.map": "/momentum-analyzer/static/js/main.f2a5d39c.chunk.js.map",
     "runtime-main.js": "/momentum-analyzer/static/js/runtime-main.ffb86bd0.js",
     "runtime-main.js.map": "/momentum-analyzer/static/js/runtime-main.ffb86bd0.js.map",
     "static/js/2.faf92f74.chunk.js": "/momentum-analyzer/static/js/2.faf92f74.chunk.js",
     "static/js/2.faf92f74.chunk.js.map": "/momentum-analyzer/static/js/2.faf92f74.chunk.js.map",
     "index.html": "/momentum-analyzer/index.html",
-    "static/css/main.bac46d89.chunk.css.map": "/momentum-analyzer/static/css/main.bac46d89.chunk.css.map",
+    "static/css/main.8e31ef03.chunk.css.map": "/momentum-analyzer/static/css/main.8e31ef03.chunk.css.map",
     "static/js/2.faf92f74.chunk.js.LICENSE.txt": "/momentum-analyzer/static/js/2.faf92f74.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.ffb86bd0.js",
     "static/js/2.faf92f74.chunk.js",
-    "static/css/main.bac46d89.chunk.css",
-    "static/js/main.53e15c60.chunk.js"
+    "static/css/main.8e31ef03.chunk.css",
+    "static/js/main.f2a5d39c.chunk.js"
   ]
 }
