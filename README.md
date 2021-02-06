@@ -1,6 +1,6 @@
-# TKL : Accelerating Dual Momentum
+# Momentum Analyzer
 
-Application permettant de connaitre la stratégie à suivre pour le mois pour la stratégie d'investissement DMA.
+Application permettant de connaitre la stratégie à suivre pour le mois, suivant la méthode Momentum.
 
 ## Application powered by React
 
