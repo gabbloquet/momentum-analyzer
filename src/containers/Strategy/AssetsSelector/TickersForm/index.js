@@ -3,7 +3,8 @@ import {Strategies} from "../../../../store/strategy/strategySlice.service";
 import {useIntl} from "react-intl";
 import {useDispatch, useSelector} from "react-redux";
 import {useForm} from "react-hook-form";
-import {addSelection} from "../../../../store/strategy/strategySlice";
+import {addSelection, setAnalyseLoading} from "../../../../store/strategy/strategySlice";
+import {loadDMAAnalyse} from "../../../../services/domain/analyse";
 import './TickersForm.style.scss'
 
 const TickersForm = () => {
@@ -13,8 +14,11 @@ const TickersForm = () => {
     const userStrategy = useSelector(state => state.userStrategy)
 
     const handleAddTicker = (event) => {
-        dispatch(addSelection(event));
+      dispatch(addSelection(event))
+      dispatch(setAnalyseLoading());
+      dispatch(loadDMAAnalyse());
     }
+
     return (
         <form className='tickers-form' onSubmit={handleSubmit(handleAddTicker)}>
             <h3>J'ajoute mes tickers en fonction de ma stratégie</h3>
@@ -22,7 +26,7 @@ const TickersForm = () => {
                 {Strategies.get(userStrategy.strategy + '')?.map(asset => {
                     return <div key={asset}>
                         <p>{intl.formatMessage({id: "ASSETS." + asset})}</p>
-                        <input type="text" name={asset + ''} placeholder='SPY' ref={register({ required: true })}/>
+                        <input type="text" name={asset + ''} placeholder='TICKER' ref={register({ required: true })}/>
                     </div>
                 })}
             </div>

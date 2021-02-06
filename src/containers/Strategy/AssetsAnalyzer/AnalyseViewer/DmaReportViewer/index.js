@@ -11,9 +11,9 @@ const DmaReportViewer = () => {
   const userStrategy = useSelector(state => state.userStrategy)
 
   useEffect(() => {
-    if(userStrategy.analyse.length === Object.keys(userStrategy.tickers).length)
+    if(userStrategy.analyse.length === (userStrategy.tickers && Object.keys(userStrategy.tickers).length))
       dispatch(loadDmaPreconisation(userStrategy.analyse));
-  }, [userStrategy.analyse, dispatch, userStrategy.tickers, userStrategy.tickers.length])
+  }, [userStrategy.analyse, dispatch, userStrategy.tickers, userStrategy.tickers?.length])
 
   return (
     <div className='dma-report-viewer'>
@@ -33,10 +33,10 @@ const DmaReportViewer = () => {
           return <tr key={assetElements.asset}>
             <td>{intl.formatMessage({id: "ASSETS." + assetElements.asset})}</td>
             <td>{assetElements.ticker}</td>
-            <td>{assetElements[1].toFixed(2)} %</td>
-            <td>{assetElements[3].toFixed(2)} %</td>
-            <td>{assetElements[6].toFixed(2)} %</td>
-            <td>{assetElements.avg.toFixed(2)} %</td>
+            <td>{assetElements[1]?.toFixed(2)} %</td>
+            <td>{assetElements[3]?.toFixed(2)} %</td>
+            <td>{assetElements[6]?.toFixed(2)} %</td>
+            <td>{assetElements.avg?.toFixed(2)} %</td>
           </tr>
         })}
         </tbody>

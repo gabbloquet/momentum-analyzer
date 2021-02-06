@@ -44,7 +44,7 @@ describe('Marketstack mappers', () => {
   }
 
   it('should convert historical data to performance', () => {
-    const expectedPerformance = {};
-    expect(getPerformance(responseExemple)).toEqual(expectedPerformance);
+    const expectedPerformance = 0.2468243934742098;
+    expect(getPerformance(responseExemple.data)).toEqual(expectedPerformance);
   });
 })

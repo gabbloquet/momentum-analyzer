@@ -1,33 +1,35 @@
-import {getDateWithMonthAgo, sleep} from "../../../utils/functions";
+import {getDateWithMonthAgo} from "../../../utils/functions";
 import {getMarketData} from "../../apis/marketstack";
 import {getPerformance} from "../../mappers/marketstack";
 import {ASSET_TYPE, Strategies} from "../../../store/strategy/strategySlice.service";
 import {addAssetAnalyse, setPreconisation} from "../../../store/strategy/strategySlice";
 
 const getTickerPerformance = async(ticker, date) => {
-  let data = await getMarketData(ticker, date, new Date());
-  return getPerformance(data);
+  return await getMarketData(ticker, date, new Date());
 }
 
-export const loadDMAAnalyse = (userStrategy) => dispatch => {
+const getPerformanceWithData = (marketData, date) => {
+  const dataAtDate = marketData.data.filter(dayAnalyse => {
+    return new Date(dayAnalyse.date) >= date;
+  })
+  console.log(marketData.data[0].symbol, date, dataAtDate)
+  return getPerformance(dataAtDate);
+}
+
+export const loadDMAAnalyse = () => (dispatch, getState) => {
 
   const sixMonthAgo = getDateWithMonthAgo(new Date(), 6);
   const threeMonthAgo = getDateWithMonthAgo(new Date(),3);
   const aMonthAgo = getDateWithMonthAgo(new Date(),1);
 
-  Strategies.get(userStrategy.strategy).forEach(async asset => {
+  Strategies.get(getState().userStrategy.strategy).forEach(async asset => {
 
-    const ticker = userStrategy.tickers[asset];
-    await sleep(2000);
+    const ticker = getState().userStrategy.tickers[asset];
 
-    const sixMonthAgoPerf = await getTickerPerformance(ticker, sixMonthAgo)
-    await sleep(2000);
-
-    const threeMonthAgoPerf = await getTickerPerformance(ticker, threeMonthAgo)
-    await sleep(2000);
-
-    const aMonthAgoPerf = await getTickerPerformance(ticker, aMonthAgo)
-    await sleep(2000);
+    const sixMonthData = await getTickerPerformance(ticker, sixMonthAgo)
+    const sixMonthAgoPerf = getPerformance(sixMonthData.data);
+    const threeMonthAgoPerf = getPerformanceWithData(sixMonthData, threeMonthAgo)
+    const aMonthAgoPerf = getPerformanceWithData(sixMonthData, aMonthAgo)
 
     const avg = (sixMonthAgoPerf + threeMonthAgoPerf + aMonthAgoPerf) / 3;
 

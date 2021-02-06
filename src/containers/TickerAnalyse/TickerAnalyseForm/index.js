@@ -12,7 +12,7 @@ const TickerAnalyseForm = ({ setAnalyse }) => {
       .then(response => setAnalyse({
           first: response.data[response.data.length - 1],
           last: response.data[0],
-          performance: getPerformance(response)
+          performance: getPerformance(response.data)
         }
       ));
   }
@@ -23,11 +23,11 @@ const TickerAnalyseForm = ({ setAnalyse }) => {
       <form className='ticker-analyse-form' onSubmit={handleSubmit(handleAddTicker)}>
         <label>
           Ticker
-          <input type="text" name='ticker' placeholder='SPY' ref={register({ required: true })}/>
+          <input type="text" name='ticker' placeholder='TICKER' ref={register({ required: true })}/>
         </label>
         <label>
           Période de stats (Max 4ans)
-          <input type="date" name='date' placeholder='SPY' ref={register({ required: true })}/>
+          <input type="date" name='date' placeholder='TICKER' ref={register({ required: true })}/>
         </label>
         <button type='submit'>Valider</button>
       </form>
