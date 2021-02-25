@@ -9,10 +9,9 @@ const getTickerPerformance = async(ticker, date) => {
 }
 
 const getPerformanceWithData = (marketData, date) => {
-  const dataAtDate = marketData.data.filter(dayAnalyse => {
+  const dataAtDate = marketData?.data.filter(dayAnalyse => {
     return new Date(dayAnalyse.date) >= date;
   })
-  console.log(marketData.data[0].symbol, date, dataAtDate)
   return getPerformance(dataAtDate);
 }
 
@@ -27,7 +26,7 @@ export const loadDMAAnalyse = () => (dispatch, getState) => {
     const ticker = getState().userStrategy.tickers[asset];
 
     const sixMonthData = await getTickerPerformance(ticker, sixMonthAgo)
-    const sixMonthAgoPerf = getPerformance(sixMonthData.data);
+    const sixMonthAgoPerf = getPerformance(sixMonthData?.data);
     const threeMonthAgoPerf = getPerformanceWithData(sixMonthData, threeMonthAgo)
     const aMonthAgoPerf = getPerformanceWithData(sixMonthData, aMonthAgo)
 

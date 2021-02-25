@@ -34,7 +34,7 @@ const TickersForm = () => {
             <button type='submit'>Valider</button>
             <details>
               <summary>Je ne connais pas de ticker</summary>
-              US Stocks : SPY <br/>
+              US Stocks : SPY | QQQ | IWM <br/>
               Ex-US Stocks : SCZ <br/>
               Long term bonds : TLT <br/>
               Tips : TIP

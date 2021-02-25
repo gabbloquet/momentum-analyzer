@@ -1,10 +1,4 @@
-/**
- * Recovery of basic data for the construction of an url with the base, the endpoint and the parameters if necessary,
- * it returns a usable url for API calls.
- * @param {URLConfig} urlConfig - The URL configuration object
- * @returns {string} - The URL built
- */
-export const urlConstructor = ({ baseUrl, apiEndpoint, queryParams }: any) =>
+export const urlConstructor = ({ baseUrl, apiEndpoint, queryParams }) =>
     queryParams
         ? `${baseUrl}${apiEndpoint}?${new URLSearchParams(queryParams)}`
         : `${baseUrl}${apiEndpoint}`;
@@ -14,7 +8,7 @@ export const urlConstructor = ({ baseUrl, apiEndpoint, queryParams }: any) =>
  * @param {object} response - The response
  * @returns {object} - The JSON content or throw an error if it's not OK.
  */
-export const handleJSONResponse = (response: any) => {
+export const handleJSONResponse = (response) => {
     if (response.ok) {
         return response.json();
     }

@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { configureStore } from "@reduxjs/toolkit";
 import rootReducer from "./store";
 import App from "./App";
+import 'awesome-notifications/dist/style.css';
 import './style/style.css';
 
 const store = configureStore({

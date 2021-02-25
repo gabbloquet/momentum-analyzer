@@ -1,5 +1,6 @@
 import {handleJSONResponse, urlConstructor} from "../../../utils/fetch";
 import {dateTimeToDate} from "../../../utils/functions";
+import {notifier} from "../../../utils/notifier";
 
 export const getMarketData = async (symbol, from, to) => {
 
@@ -19,6 +20,6 @@ export const getMarketData = async (symbol, from, to) => {
       .then(handleJSONResponse)
       .then(response => response)
       .catch(err => {
-          console.error(err);
+        notifier.alert(err);
       });
 }
