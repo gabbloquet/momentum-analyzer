@@ -5,7 +5,7 @@ import {notifier} from "../../../utils/notifier";
 export const getMarketData = async (symbol, from, to) => {
 
     const urlConfig = {
-        baseUrl: 'https://api.marketstack.com',
+        baseUrl: 'http://api.marketstack.com',
         apiEndpoint: '/v1/eod',
         queryParams: {
             access_key: process.env.REACT_APP_MARKETSTACK_ACCESS_KEY,
